@@ -19,6 +19,7 @@
 	org.apache.ace.authentication.impl;version=latest,\
 	org.apache.ace.authentication.processor.basicauth;version=latest,\
 	org.apache.ace.authentication.processor.password;version=latest,\
+	org.apache.ace.authentication.processor.clientcert;version=latest,\
 	org.apache.ace.useradmin.repository;version=latest,\
 	org.apache.ace.configurator.impl;version=latest,\
 	org.apache.ace.connectionfactory;version=latest,\
@@ -34,7 +35,6 @@
 	org.apache.ace.repository.api;version=latest,\
 	org.apache.ace.repository.impl;version=latest,\
 	org.apache.ace.repository.servlets;version=latest,\
-	org.apache.ace.resourceprocessor.useradmin;version=latest,\
 	org.apache.ace.scheduler.impl;version=latest,\
 	org.apache.ace.log.server.store.api;version=latest,\
 	org.apache.ace.log.server.store.file;version=latest,\
@@ -43,10 +43,16 @@
 	Release
 -runproperties: org.apache.felix.log.storeDebug=true,\
 	org.apache.felix.eventadmin.Timeout=0,\
-	org.apache.ace.server=localhost:8080,\
-	org.apache.ace.obr=localhost:8082,\
-	org.osgi.service.http.port=8080,\
+	org.apache.ace.server=server.localhost:8080,\
+	org.apache.ace.obr=obr.localhost:8082,\
+	org.osgi.service.http.port.secure=8080,\
+	org.apache.felix.http.enable=false,\
+	org.apache.felix.https.enable=true,\
+	org.apache.felix.https.keystore=/Users/brampouwelse/certs/certs/server.jks,\
+	org.apache.felix.https.keystore.password=secret,\
+	org.apache.felix.https.truststore=/Users/brampouwelse/certs/certs/root_ca.jks,\
+	org.apache.felix.https.truststore.password=secret,\
+	org.apache.felix.https.clientcertificate=wants,\
 	org.apache.felix.log.maxSize=1000,\
 	launch.keep=true,\
 	launch.storage.dir=bundle-cache
-	
